@@ -119,6 +119,10 @@
 }
 
 - (instancetype)bk_initWithTitle:(NSString *)title {
+	#ifdef ECARD_EXTENSION
+	NSLog(@"unsupported for extension");
+	return nil;
+	#endif 
 	self = [self initWithTitle:title delegate:self.bk_dynamicDelegate cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
 	if (!self) { return nil; }
 	self.delegate = self.bk_dynamicDelegate;
